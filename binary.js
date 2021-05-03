@@ -12,12 +12,14 @@ function upper_bound(n, v, a) {
 
     while (left < right) {
         // 中间值：二分
-        let mid = ((left + right) / 2);
+        // parseInt在javasript转整数
+        let mid = parseInt((left + right) / 2);
         const curValue = a[mid];
 
         // 关键是你自己如何定义：第一个大于等于目标值的的数
         // 隐藏条件：进行二分查找的数组时有序的！！
         if (curValue >= v) {
+            // 单独处理下标为0的情况
             if (mid === 0) return mid + 1;
             if (a[mid - 1] >= v) {
                 right = mid;
